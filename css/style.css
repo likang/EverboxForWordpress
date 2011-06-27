@@ -1,0 +1,120 @@
+body {
+  background: url('../img/body-bg.png') repeat #d3d6d9;
+  color: #626262;
+  font-family: 'Helvetica Neue', Helvetica, Arial Geneva, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+}
+a:link, a:visited {
+  color: #477daf;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+}
+.wrapper {
+  width: 470px;
+  margin: auto;
+}
+.wrapper .header {
+  text-align: center;
+}
+.wrapper .header h2 {
+  font-weight: normal;
+  color: #636c75;
+  text-shadow: 0 1px 1px rgba(255,255,255,.5);
+}
+.wrapper .main {
+  background: white;
+  padding: 20px 10px 20px 10px;
+
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+}
+.wrapper .main #commit  {
+  background: -moz-linear-gradient(top, #e3e3e3, #f6f6f6) #1b468f;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e3e3e3), to(#f6f6f6)) #1b468f;
+  background: linear-gradient(top, #e3e3e3, #f6f6f6) #1b468f;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #ababab;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #707070;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  outline: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .5);
+
+  margin-top:10px;
+  float:left;
+}
+.wrapper .main .item {
+  border-bottom: 1px solid #E5E5E5;
+}
+.wrapper .main p {
+  float:right;
+  margin-top:10px;
+  text-align:right;
+}
+.wrapper .main .item .clear,
+.wrapper .main .clear {
+  clear: both;
+  float: none;
+  padding: 0px;
+}
+.wrapper .main .item div {
+  float: left;
+  padding: 8px;
+  vertical-align: middle;
+}
+.wrapper .main .item .select {
+  width: 18px;
+}
+.wrapper .main .item .type {
+  width: 16px;
+}
+.wrapper .main .item .title {
+  width: 279px;
+  white-space: nowrap;
+}
+.wrapper .main .item .size {
+  text-align: right;
+  font-weight:bold;
+  float:right;
+}
+.wrapper .footer {
+  padding: 12px 0;
+  color: #636c75;
+  text-shadow: 0 1px 1px rgba(255,255,255,.5);
+}
+.wrapper .footer ul {
+  width: auto;
+  float: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wrapper .footer ul li {
+  float: left;
+  margin: 0 12px 0 0;
+}
+.wrapper .footer ul li a:link,
+.wrapper .footer ul li a:visited {
+  color: #636c75;
+}
+.wrapper .footer p {
+  float: right;
+  margin: 0;
+}
