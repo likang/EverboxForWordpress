@@ -11,9 +11,8 @@ try {
   //echo 'sdid:'.$sdid."<br>";
   $access_token = $token['access_token'];
   //echo 'access_token:'.$access_token."<br>";
-  $state =$_GET['state'];
-  $state = str_replace("__equal__","=",$state);
-  $state = str_replace("__and__","&",$state);
+  $state = $_GET['state'];
+  $state = base64_decode($state); 
   $url = $state."&sdid=".$sdid."&snda_access_token=".$access_token."&snda_expires_in=".$expires_in;
 
   //echo 'state:'.$state."<br>";
