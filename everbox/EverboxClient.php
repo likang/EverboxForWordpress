@@ -123,9 +123,7 @@ class EverboxClient
     }
     
     
-    function _preparePut($path, $keys, $fileSize, $base = null) {
-        $chunkSize = self::CHUNK_SIZE;
-        
+    function _preparePut($path, $keys, $fileSize, $base = null, $chunkSize = self::CHUNK_SIZE) {
         $param = array('path'=>$path, 'keys'=>$keys, 'fileSize'=>$fileSize);
         if (!is_null($base)) {
             $param['base'] = $base;
