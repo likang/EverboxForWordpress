@@ -213,8 +213,7 @@ class EverboxClient
         return $ret_size > 0 ? fread($in, $ret_size) : '';
     }
 
-    function _commitPut($path, $keys, $fileSize, $editTime = null, $base = null) {
-        $chunkSize = self::CHUNK_SIZE;
+    function _commitPut($path, $keys, $fileSize, $editTime = null, $base = null, $chunkSize = self::CHUNK_SIZE) {
         $mimeType = null;
         
         $param = array('path'=>$path, 'keys'=>$keys, 'fileSize'=>$fileSize);

@@ -17,6 +17,29 @@ function request_token(){
   exit;
 }
 
+function confirm_dir(){
+  $client = get_client();
+  $result = $client->mkdir('/home/'.$_GET['folder']);
+  echo $result;
+}
+
+function commit_put(){
+  $path = EverboxClient::urlsafeBase64Decode($_GET['path']);
+  $keys = $_POST['keys'];
+  $file_size = intval($_GET['file_size']);
+  $chunk_size = intval($_GET['chunk_size']);
+  
+  $client = get_client();
+  try{
+    $result =  $client->_commitPut($path, $keys, $file_size,null,null,$chunk_size);
+    //echo $result;
+  } catch (Exception $e){
+    echo 'code:'.$e->getCode().'<br>';
+    echo 'message:'.$e->getMessage().'<br>';
+    echo '<br>';
+  }
+}
+
 function get_file_chunks_url(){
   $path = EverboxClient::urlsafeBase64Decode($_GET['path']);
   $keys = $_POST['keys'];
@@ -25,32 +48,18 @@ function get_file_chunks_url(){
   
   $client = get_client();
   try{
-  //$client->put('/var/www/blog/wp-content/backups/.backup.2011-07-03-02-32-27.zip','/home/a.zip');
-  //exit;
- // echo 'path'.gettype($path).'<br>';
-  //echo 'keys'.gettype($keys).'<br>';
- // echo 'filesize'.gettype($file_size).'<br>';
-  //echo 'chunksize'.gettype($chunk_size).'<br>';
- // $result = $client->puttoo('/var/www/blog/wp-content/backups/.backup.2011-07-03-02-32-27.zip',$path,$file_size,$chunk_size,$keys);
-  //$path = '/home/a.zip';
-  //$keys = $client->_calcKeys($file);
-  //$stat = fstat($file);
-  //$file_size = $stat['size'];
-  $result =  $client->_preparePut($path, $keys, $file_size,null,$chunk_size);
-  echo json_encode($result['required']);
+    $result =  $client->_preparePut($path, $keys, $file_size,null,$chunk_size);
+    $result = $result['required'];
+    $data = "";
+    foreach ($result as $item ) {
+      $data .= $item['url']."\n";
+    }
+    echo $data;
   } catch (Exception $e){
     echo 'code:'.$e->getCode().'<br>';
     echo 'message:'.$e->getMessage().'<br>';
     echo '<br>';
   }
-
-  //echo 'keys:'.var_dump($_POST['keys']).'<br>';
-  //echo 'path:'.EverboxClient::urlsafeBase64Decode($_GET['path']).'<br>';
-  //echo 'filesize:'.intval($_GET['file_size']).'<br>';
-  //echo 'chunksize:'.intval($_GET['chunk_size']).'<br>';
-  //echo 'sdid:'.$_GET['sdid'].'<br>';
-  //echo 'oauth_token:'.$_GET['access_token'].'<br>';
-
 }
 
 function get_client(){
