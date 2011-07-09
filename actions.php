@@ -1,9 +1,8 @@
 <?php
-  require_once 'everbox/EverboxClient.php';
-  require_once 'everbox/SNDAOAuthHTTPClient.php';
+require_once 'util.php';
 
-  $action = $_GET['action'];
-  $action();
+$action = $_GET['action'];
+$action();
 
 function request_token(){
   $config = include 'everbox/apipool.config.php';
@@ -62,19 +61,4 @@ function get_file_chunks_url(){
   }
 }
 
-function get_client(){
-  $config = include 'everbox/apipool.config.php';
-  $http = new SNDAOAuthHTTPClient($config);
-  $http->setAccessToken(get_token());
-  return new SNDAEverboxClient($http, $config);
-}
-
-function get_token() {
-  $sdid =  $_GET['sdid'];
-  $access_token = $_GET['access_token'];
-  $expires_in = $_GET['expires_in'];
-  $token_json = "{\"access_token\":\"$access_token\",\"expires_in\":$expires_in,\"sdid\":\"$sdid\"}";
-  $token  = json_decode($token_json,true);
-  return $token;
-}
 ?>
