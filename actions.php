@@ -18,6 +18,7 @@ function request_token(){
 
 function confirm_dir(){
   $client = get_client();
+echo $client->getEverboxToken();exit;
   $result = $client->mkdir('/home/'.$_GET['folder']);
   echo $result;
 }
